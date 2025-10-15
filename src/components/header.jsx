@@ -1,8 +1,13 @@
 import { motion } from "motion/react";
-import { useState } from "react";
-import { useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
+
   function checkWidth() {
     if (window.innerWidth > 768) {
       setIsMenuOpen(true);
@@ -10,6 +15,23 @@ export default function Header() {
       setIsMenuOpen(false);
     }
   }
+
+  const scrollToSection = (sectionId) => {
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: {
+        y: sectionId,
+        offsetY: 100,
+      },
+      ease: "power3.inOut",
+    });
+
+    // Close mobile menu after clicking
+    if (window.innerWidth < 768) {
+      setIsMenuOpen(false);
+    }
+  };
+
   useLayoutEffect(() => {
     checkWidth();
     window.addEventListener("resize", checkWidth);
@@ -87,16 +109,28 @@ export default function Header() {
       </div>
       {isMenuOpen ? (
         <ul className="flex absolute top-[85px] w-[97%] md:w-fit rounded-4xl z-50 right-2 flex-col md:static md:flex-row gap-4 border-2 border-[#262626] md:rounded-full p-4 bg-[var(--primary-light)]/50 backdrop-blur-sm h-[30vh] md:h-fit justify-around">
-          <li className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer">
+          <li
+            onClick={() => scrollToSection("#features")}
+            className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer"
+          >
             Features
           </li>
-          <li className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer">
+          <li
+            onClick={() => scrollToSection("#how-it-works")}
+            className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer"
+          >
             How it works
           </li>
-          <li className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer">
+          <li
+            onClick={() => scrollToSection("#testimonials")}
+            className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer"
+          >
             Testimonials
           </li>
-          <li className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer">
+          <li
+            onClick={() => scrollToSection("#faqs")}
+            className="text-center text-2xl md:text-base px-2 text-[var(--text)] hover:text-white transition-all delay-200 cursor-pointer"
+          >
             FAQs
           </li>
         </ul>
