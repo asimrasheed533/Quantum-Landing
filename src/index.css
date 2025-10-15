@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0d0d0d;
+  --primary-light: #131313;
+  --secondary: #e2ff02;
+  --text: #7a7a7a;
+}
+
+body {
+  background-color: var(--primary);
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  overflow-x: hidden;
+}
+.faq__summary {
+  padding: 1em;
+}
+.faq__summary::marker {
+  display: none;
+}
+.faq__details {
+  transition: all 0.5s ease-in-out;
+}
+.faq__details[open] {
+  background-color: #161616;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+  border-radius: 1em;
+}
+.faq__details svg {
+  transition: all 0.5s ease-in-out;
+}
+.faq__details[open] svg {
+  transform: rotate(45deg);
+}
+
+.faq__details > div {
+  color: var(--text);
+  font-size: 16px;
+  padding: 0 1em;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--primary);
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 4px;
+}
+.bg__size {
+  background-position: center;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--secondary);
+}
+.swiper {
+  height: 100%;
+  max-width: 100% !important;
+  overflow: visible;
+}
+.swiper-pagination {
+  bottom: -2em !important;
+  z-index: 99;
+}
+
+.svg__container svg {
+  height: 40px;
+  width: 150px;
+}
+
+/* html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar {
+  width: 100%;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  transform: scaleY(1);
+}
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+  transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+  right: auto;
+  bottom: 0;
+}
+
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+} */
+
+.scroll__container {
+  max-width: 1440px;
+  gap: 24px;
+  display: flex;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 20%,
+    #000 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 20%,
+    #000 80%,
+    transparent
+  );
+}
+.scroll__container__element {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  animation: slide 80s linear infinite;
+  --gap: 24px;
+  height: 150px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - var(--gap, 0px)));
+  }
+}
+
+/* ScrollSmoother setup */
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  overflow: visible;
+}
+
+@layer utilities {
+  .highlighted {
+    background: linear-gradient(to right, yellow, yellow) no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 100% 100%;
+  }
+  .split-text-char {
+    /* you can optionally apply default styles to all chars */
+    background: linear-gradient(to right, yellow, yellow) no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 0% 100%;
+    transition: background-size 0.3s ease, color 0.3s ease;
+  }
+}
