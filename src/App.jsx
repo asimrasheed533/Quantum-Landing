@@ -103,7 +103,7 @@ export default function App() {
           <Introducing />
           {/* what you 'll get */}
           <Wrapper>
-            <div className="flex flex-col w-full items-center py-4">
+            <div id="features" className="flex flex-col w-full items-center py-4">
               <div className="flex items-center text-xl text-[var(--secondary)] gap-2 mb-4 fade-in">
                 <svg
                   width="26"
@@ -240,7 +240,7 @@ export default function App() {
           </Wrapper>
           {/* how it works */}
           <Wrapper>
-            <div className="flex flex-col w-full items-center py-4">
+            <div id="how-it-works" className="flex flex-col w-full items-center py-4">
               <div className="flex items-center text-xl text-[var(--secondary)] gap-2 mb-4">
                 <svg
                   width="26"
@@ -496,7 +496,7 @@ export default function App() {
           </Wrapper>
           {/* reviews */}
           <Wrapper>
-            <div className="flex flex-col gap-20 my-20">
+            <div id="testimonials" className="flex flex-col gap-20 my-20">
               <Swiper
                 spaceBetween={30}
                 autoplay={{
@@ -1416,7 +1416,7 @@ export default function App() {
           </Wrapper>
           {/* faqs */}
           <Wrapper>
-            <div className="flex items-center flex-col">
+            <div id="faqs" className="flex items-center flex-col">
               <div className="flex items-center text-xl text-[var(--secondary)] gap-2 mb-4">
                 <svg
                   width="26"
