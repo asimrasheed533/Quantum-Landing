@@ -103,7 +103,10 @@ export default function App() {
           <Introducing />
           {/* what you 'll get */}
           <Wrapper>
-            <div id="features" className="flex flex-col w-full items-center py-4">
+            <div
+              id="features"
+              className="flex flex-col w-full items-center py-4"
+            >
               <div className="flex items-center text-xl text-[var(--secondary)] gap-2 mb-4 fade-in">
                 <svg
                   width="26"
@@ -240,7 +243,10 @@ export default function App() {
           </Wrapper>
           {/* how it works */}
           <Wrapper>
-            <div id="how-it-works" className="flex flex-col w-full items-center py-4">
+            <div
+              id="how-it-works"
+              className="flex flex-col w-full items-center py-4"
+            >
               <div className="flex items-center text-xl text-[var(--secondary)] gap-2 mb-4">
                 <svg
                   width="26"
@@ -1612,7 +1618,7 @@ export default function App() {
                   href="#"
                   className="hover:underline transition-all delay-200"
                 >
-                  Arslan Iftikhar
+                  Asim Rasheed
                 </a>
               </div>
             </div>
